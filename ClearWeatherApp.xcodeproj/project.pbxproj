@@ -20,6 +20,7 @@
 		0B489EF21A988D7C0040E45A /* Clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B489EEE1A988D7C0040E45A /* Clouds.png */; };
 		0B489EF31A988D7C0040E45A /* Rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B489EEF1A988D7C0040E45A /* Rain.png */; };
 		0B489EF41A988D7C0040E45A /* Snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B489EF01A988D7C0040E45A /* Snow.png */; };
+		0BC98EBC1A99DF25006F339A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC98EBB1A99DF25006F339A /* Alamofire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0B489EEE1A988D7C0040E45A /* Clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clouds.png; sourceTree = "<group>"; };
 		0B489EEF1A988D7C0040E45A /* Rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rain.png; sourceTree = "<group>"; };
 		0B489EF01A988D7C0040E45A /* Snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snow.png; sourceTree = "<group>"; };
+		0BC98EBB1A99DF25006F339A /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		0B489EEA1A988CE30040E45A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0BC98EBB1A99DF25006F339A /* Alamofire.swift */,
 				0B489EE81A9889BF0040E45A /* OpenWeatherAPIClient.swift */,
 				0B489EE61A9889A70040E45A /* DailyWeather.swift */,
 				0B489EE41A9889800040E45A /* Weather.swift */,
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC98EBC1A99DF25006F339A /* Alamofire.swift in Sources */,
 				0B489EE71A9889A70040E45A /* DailyWeather.swift in Sources */,
 				0B489EC71A9889670040E45A /* ViewController.swift in Sources */,
 				0B489EE51A9889800040E45A /* Weather.swift in Sources */,
@@ -465,6 +469,7 @@
 				0B489EE01A9889680040E45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B489EE11A9889680040E45A /* Build configuration list for PBXNativeTarget "ClearWeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +478,7 @@
 				0B489EE31A9889680040E45A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
