@@ -22,11 +22,11 @@ class DailyWeather: NSObject {
         
         for lists in list {
             var weather:DailyWeather = DailyWeather()
-            weather.aDiscription = list.valueForKeyPath("weather.discription") as String
-            weather.temp_min = self.translateDouble(list.valueForKeyPath("weather.temp_min") as Double)
-            weather.temp_max = self.translateDouble(list.valueForKeyPath("weather.temp_max") as Double)
-            weather.main = list.valueForKeyPath("weather.main") as String
-            weather.dt = self.translateTime(list.valueForKey("dt") as NSTimeInterval)
+            weather.aDiscription = lists.valueForKeyPath("weather.discription") as String
+            weather.temp_min = self.translateDouble(lists.valueForKeyPath("weather.temp_min") as Double)
+            weather.temp_max = self.translateDouble(lists.valueForKeyPath("weather.temp_max") as Double)
+            weather.main = lists.valueForKeyPath("weather.main") as String
+            weather.dt = self.translateTime(lists.valueForKey("dt") as NSTimeInterval)
             weatherData.addObject(weather)
         }
         return weatherData
