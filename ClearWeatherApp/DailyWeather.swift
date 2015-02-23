@@ -52,7 +52,7 @@ class DailyWeather: NSObject {
         var date = NSDate(timeIntervalSince1970: unixDate)
         var formatter = NSDateFormatter()
         formatter.dateFormat = "MM/dd"
-        return formatter.stringFromDate(date) as String
+        return formatter.stringFromDate(date) as NSString
     }
     
     class func translateDouble(doubleValue:Double) -> String {
