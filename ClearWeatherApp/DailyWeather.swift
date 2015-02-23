@@ -51,7 +51,7 @@ class DailyWeather: NSObject {
     class func translateTime(unixDate:NSTimeInterval) -> String {
         var date = NSDate(timeIntervalSince1970: unixDate)
         var formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: ja_JP)
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
         formatter.dateFormat = "MM/dd"
         return formatter.stringFromDate(date) as String
     }
