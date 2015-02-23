@@ -10,36 +10,52 @@ import UIKit
 
 class DailyWeather: NSObject {
     
-    var aDiscription:String = ""
-    var temp_min:String = ""
-    var temp_max:String = ""
-    var main:String = ""
-    var dt:String = ""
+    var aDescription = String()
+    var temp_min = String()
+    var temp_max = String()
+    var main = String()
+    var dt = String()
     
-    func perseJSON(data:NSDictionary) -> NSArray {
-        var list = data.valueForKey("list") as NSArray
-        var weatherData:NSMutableArray!
-        
-        for lists in list {
-            var weather:DailyWeather = DailyWeather()
-            weather.aDiscription = lists.valueForKeyPath("weather.discription") as String
-            weather.temp_min = self.translateDouble(lists.valueForKeyPath("weather.temp_min") as Double)
-            weather.temp_max = self.translateDouble(lists.valueForKeyPath("weather.temp_max") as Double)
-            weather.main = lists.valueForKeyPath("weather.main") as String
-            weather.dt = self.translateTime(lists.valueForKey("dt") as NSTimeInterval)
-            weatherData.addObject(weather)
+    class func perseJSON(data: AnyObject?) -> NSArray {
+        var _weatherData = NSMutableArray()
+        if let weatherData = data as? NSMutableArray {
+            for list in weatherData {
+                let weather = DailyWeather()
+                if let weatherArray = list["weather"] as? NSArray {
+                    if let aDescription = weatherArray[0]["description"] as? String {
+                        weather.aDescription = aDescription
+                    }
+                    if let main = weatherArray[0]["main"] as? String {
+                        weather.main = main
+                    }
+                }
+                if let main = list["main"] as? NSDictionary {
+                    if let temp_min = main["temp_min"] as? Double {
+                        weather.temp_min = translateDouble(temp_min)
+                    }
+                    if let temp_max = main["temp_max"] as? Double {
+                        weather.temp_max = translateDouble(temp_max)
+                    }
+                }
+                if let dt = list["dt"] as? NSTimeInterval {
+                    weather.dt = translateTime(dt)
+                }
+                _weatherData.addObject(weather)
+            }
         }
-        return weatherData
+        
+        return _weatherData
     }
     
-    func translateTime(unixDate:NSTimeInterval) -> String {
+    // 時間の直し方わからなかったのでググりました。あってるかわかりませんm(_ _)m
+    class func translateTime(unixDate:NSTimeInterval) -> String {
         var date = NSDate(timeIntervalSince1970: unixDate)
         var formatter = NSDateFormatter()
         formatter.dateFormat = "MM/dd"
         return formatter.stringFromDate(date) as String
     }
     
-    func translateDouble(doubleValue:Double) -> String {
+    class func translateDouble(doubleValue:Double) -> String {
         return NSString(format: "%1.0f゜", floor(doubleValue - 273.15))
     }
 }
