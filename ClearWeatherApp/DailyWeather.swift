@@ -17,9 +17,9 @@ class DailyWeather: NSObject {
     var dt = String()
     
     class func perseJSON(data: AnyObject?) -> NSArray {
-        var _weatherData = NSMutableArray()
-        if let weatherData = data as? NSMutableArray {
-            for list in weatherData {
+        var weatherData = NSMutableArray()
+        if let _weatherData = data as? NSMutableArray {
+            for list in _weatherData {
                 let weather = DailyWeather()
                 if let weatherArray = list["weather"] as? NSArray {
                     if let aDescription = weatherArray[0]["description"] as? String {
@@ -40,11 +40,11 @@ class DailyWeather: NSObject {
                 if let dt = list["dt"] as? NSTimeInterval {
                     weather.dt = translateTime(dt)
                 }
-                _weatherData.addObject(weather)
+                weatherData.addObject(weather)
             }
         }
         
-        return _weatherData
+        return weatherData
     }
     
     // 時間の直し方わからなかったのでググりました。あってるかわかりませんm(_ _)m
@@ -53,7 +53,7 @@ class DailyWeather: NSObject {
         var formatter = NSDateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ja_JP")
         formatter.dateFormat = "MM/dd"
-        return formatter.stringFromDate(date) as String
+        return formatter.stringFromDate(date) as NSString
     }
     
     class func translateDouble(doubleValue:Double) -> String {
