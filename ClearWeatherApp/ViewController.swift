@@ -13,7 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        OpenWeatherAPIClient.sharedClient.getWeather({data, error in})
+        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+        })
+        
+        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
+            
+            
+        })
         
     }
 
