@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B489EC51A9889670040E45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B489EC41A9889670040E45A /* AppDelegate.swift */; };
 		0B489EC71A9889670040E45A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B489EC61A9889670040E45A /* ViewController.swift */; };
-		0B489ECA1A9889670040E45A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B489EC81A9889670040E45A /* Main.storyboard */; };
 		0B489ECC1A9889670040E45A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B489ECB1A9889670040E45A /* Images.xcassets */; };
 		0B489ECF1A9889670040E45A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B489ECD1A9889670040E45A /* LaunchScreen.xib */; };
 		0B489EDB1A9889680040E45A /* ClearWeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B489EDA1A9889680040E45A /* ClearWeatherAppTests.swift */; };
@@ -38,7 +37,6 @@
 		0B489EC31A9889670040E45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B489EC41A9889670040E45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B489EC61A9889670040E45A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0B489EC91A9889670040E45A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B489ECB1A9889670040E45A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0B489ECE1A9889670040E45A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0B489ED41A9889680040E45A /* ClearWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClearWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +139,6 @@
 		0B489EEB1A988CEA0040E45A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0B489EC81A9889670040E45A /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B489ECA1A9889670040E45A /* Main.storyboard in Resources */,
 				0B489ECF1A9889670040E45A /* LaunchScreen.xib in Resources */,
 				0B489EF41A988D7C0040E45A /* Snow.png in Resources */,
 				0B489EF21A988D7C0040E45A /* Clouds.png in Resources */,
@@ -300,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0B489EC81A9889670040E45A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0B489EC91A9889670040E45A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0B489ECD1A9889670040E45A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
