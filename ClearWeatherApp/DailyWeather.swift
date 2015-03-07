@@ -56,6 +56,6 @@ class DailyWeather: NSObject {
     }
     
     class func translateDouble(doubleValue:Double) -> String {
-        return NSString(format: "%1.0f゜", floor(doubleValue - 0))
+        return NSString(format: "%1.0f°", floor(doubleValue - 0))
     }
 }

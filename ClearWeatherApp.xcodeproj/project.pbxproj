@@ -24,6 +24,7 @@
 		FB5838D71AAAE04D0023F204 /* back0.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838D61AAAE04C0023F204 /* back0.png */; };
 		FB5838D91AAAE0560023F204 /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838D81AAAE0560023F204 /* back1.png */; };
 		FB5838DB1AAAE05C0023F204 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838DA1AAAE05C0023F204 /* back2.png */; };
+		FB5838DD1AAAE96C0023F204 /* back3.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838DC1AAAE96C0023F204 /* back3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		FB5838D61AAAE04C0023F204 /* back0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back0.png; sourceTree = "<group>"; };
 		FB5838D81AAAE0560023F204 /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
 		FB5838DA1AAAE05C0023F204 /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = "<group>"; };
+		FB5838DC1AAAE96C0023F204 /* back3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				FB5838D61AAAE04C0023F204 /* back0.png */,
 				FB5838D81AAAE0560023F204 /* back1.png */,
 				FB5838DA1AAAE05C0023F204 /* back2.png */,
+				FB5838DC1AAAE96C0023F204 /* back3.png */,
 				0B489EF01A988D7C0040E45A /* Snow.png */,
 				0B489EEF1A988D7C0040E45A /* Rain.png */,
 				0B489EEE1A988D7C0040E45A /* Clouds.png */,
@@ -259,6 +262,7 @@
 			files = (
 				FB5838DB1AAAE05C0023F204 /* back2.png in Resources */,
 				FB5838D71AAAE04D0023F204 /* back0.png in Resources */,
+				FB5838DD1AAAE96C0023F204 /* back3.png in Resources */,
 				0B489ECF1A9889670040E45A /* LaunchScreen.xib in Resources */,
 				0B489EF41A988D7C0040E45A /* Snow.png in Resources */,
 				0B489EF21A988D7C0040E45A /* Clouds.png in Resources */,
