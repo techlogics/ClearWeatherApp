@@ -32,17 +32,60 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         self.tableView.separatorStyle = .None
         
+        // それぞれのパーツ CGRectMakeでパーツの大きさを設定 CGPointMakeで配置位置を設定
+        weatherImageView = UIImageView(frame: CGRectMake(0, 0, kScreenSize.width/3, kScreenSize.width/3))
+        weatherImageView.tintColor = UIColor.whiteColor()
+        weatherImageView.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.width/2)
+        
+        nameLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
+        nameLabel.textColor =  UIColor.whiteColor()
+        nameLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        nameLabel.textAlignment = .Center
+        nameLabel.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.width/2 - kScreenSize.width/5)
+        
+        descriptionLabel = UILabel(frame: CGRectMake(0, 0, 200, 30))
+        descriptionLabel.textColor = UIColor.whiteColor()
+        descriptionLabel.textAlignment = .Center
+        descriptionLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
+        descriptionLabel.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.width/2 + kScreenSize.width/5)
+        
+        maxLabel = UILabel(frame: CGRectMake(0, 0, 100, 40))
+        maxLabel.textColor = UIColor.whiteColor()
+        maxLabel.textAlignment = .Right // 最高気温を画面右に配置
+        maxLabel.layer.position = CGPointMake(3 * kScreenSize.width/4, kScreenSize.width/2)
+        maxLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        
+        minLabel = UILabel(frame: CGRectMake(0, 0, 100, 40))
+        minLabel.textColor = UIColor.whiteColor()
+        minLabel.textAlignment = .Left // 最低気温は画面左に配置
+        minLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        minLabel.layer.position = CGPointMake(kScreenSize.width/4, kScreenSize.width/2)
+        
         // self.view.addSubview()でviewに追加
         self.view.addSubview(tableView)
+        self.view.addSubview(weatherImageView)
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(descriptionLabel)
+        self.view.addSubview(maxLabel)
+        self.view.addSubview(minLabel)
         
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         OpenWeatherAPIClient.sharedClient.getWeather({data, error in
             
+            let weather: Weather = data
+            self.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
+            self.nameLabel.text = weather.name
+            self.descriptionLabel.text = weather.aDescription
+            self.maxLabel.text = weather.temp_max
+            self.minLabel.text = weather.temp_min
+            
         })
+        
         
         OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
             let dailyWeather: [DailyWeather] = data

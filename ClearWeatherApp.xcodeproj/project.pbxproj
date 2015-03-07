@@ -21,6 +21,9 @@
 		0B489EF41A988D7C0040E45A /* Snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B489EF01A988D7C0040E45A /* Snow.png */; };
 		0BC98EBC1A99DF25006F339A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC98EBB1A99DF25006F339A /* Alamofire.swift */; };
 		FB1BFCD91AA9D29500B2B1E2 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1BFCD81AA9D29500B2B1E2 /* WeatherTableViewCell.swift */; };
+		FB5838D71AAAE04D0023F204 /* back0.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838D61AAAE04C0023F204 /* back0.png */; };
+		FB5838D91AAAE0560023F204 /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838D81AAAE0560023F204 /* back1.png */; };
+		FB5838DB1AAAE05C0023F204 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = FB5838DA1AAAE05C0023F204 /* back2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		0B489EF01A988D7C0040E45A /* Snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snow.png; sourceTree = "<group>"; };
 		0BC98EBB1A99DF25006F339A /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		FB1BFCD81AA9D29500B2B1E2 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		FB5838D61AAAE04C0023F204 /* back0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back0.png; sourceTree = "<group>"; };
+		FB5838D81AAAE0560023F204 /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
+		FB5838DA1AAAE05C0023F204 /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,9 @@
 			children = (
 				0B489ECD1A9889670040E45A /* LaunchScreen.xib */,
 				0B489ECB1A9889670040E45A /* Images.xcassets */,
+				FB5838D61AAAE04C0023F204 /* back0.png */,
+				FB5838D81AAAE0560023F204 /* back1.png */,
+				FB5838DA1AAAE05C0023F204 /* back2.png */,
 				0B489EF01A988D7C0040E45A /* Snow.png */,
 				0B489EEF1A988D7C0040E45A /* Rain.png */,
 				0B489EEE1A988D7C0040E45A /* Clouds.png */,
@@ -248,11 +257,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5838DB1AAAE05C0023F204 /* back2.png in Resources */,
+				FB5838D71AAAE04D0023F204 /* back0.png in Resources */,
 				0B489ECF1A9889670040E45A /* LaunchScreen.xib in Resources */,
 				0B489EF41A988D7C0040E45A /* Snow.png in Resources */,
 				0B489EF21A988D7C0040E45A /* Clouds.png in Resources */,
 				0B489EF31A988D7C0040E45A /* Rain.png in Resources */,
 				0B489ECC1A9889670040E45A /* Images.xcassets in Resources */,
+				FB5838D91AAAE0560023F204 /* back1.png in Resources */,
 				0B489EF11A988D7C0040E45A /* Clear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
