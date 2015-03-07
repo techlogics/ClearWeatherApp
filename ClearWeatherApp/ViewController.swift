@@ -16,8 +16,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     var minLabel: UILabel!
     var maxLabel: UILabel!
     var nameLabel: UILabel!
+    var backImageView = UIImageView()
     
     var weatherArray = [DailyWeather]()
+    
+    // 背景画像を配列で用意
+    let backImages = [UIImage(named: "back0"), UIImage(named: "back1"), UIImage(named: "back2"), UIImage(named: "back3")]
     
     override func loadView() {
         super.loadView()
@@ -27,10 +31,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // TableViewの配置は画面の下半分に設定
         tableView = UITableView(frame: CGRectMake(0, kScreenSize.height/2, kScreenSize.width, kScreenSize.height/2))
-        tableView.backgroundColor = UIColor.orangeColor()
+        tableView.backgroundColor = UIColor.clearColor()
         tableView.rowHeight = 100
         tableView.dataSource = self
-        self.tableView.separatorStyle = .None
+        tableView.separatorStyle = .None
+        
+        // 背景画像の設定 背景は背景の数でランダム
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "changeBack", userInfo: nil, repeats: true)
+        backImageView = UIImageView(frame: CGRectMake(0, 0, kScreenSize.width, kScreenSize.height))
+        backImageView.image = backImages[random() % backImages.count]
         
         // それぞれのパーツ CGRectMakeでパーツの大きさを設定 CGPointMakeで配置位置を設定
         weatherImageView = UIImageView(frame: CGRectMake(0, 0, kScreenSize.width/3, kScreenSize.width/3))
@@ -62,6 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         minLabel.layer.position = CGPointMake(kScreenSize.width/4, kScreenSize.width/2)
         
         // self.view.addSubview()でviewに追加
+        self.view.addSubview(backImageView)
         self.view.addSubview(tableView)
         self.view.addSubview(weatherImageView)
         self.view.addSubview(nameLabel)
@@ -74,24 +84,19 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         OpenWeatherAPIClient.sharedClient.getWeather({data, error in
-            
             let weather: Weather = data
             self.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
             self.nameLabel.text = weather.name
             self.descriptionLabel.text = weather.aDescription
             self.maxLabel.text = weather.temp_max
             self.minLabel.text = weather.temp_min
-            
         })
-        
         
         OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
             self.weatherArray = data
             self.tableView.reloadData()
         })
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,12 +116,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.descriptionLabel.text = weatherArray[indexPath.row].aDescription
         cell.weatherImageView.image = UIImage(named:weatherArray[indexPath.row].main)?.imageWithRenderingMode(.AlwaysTemplate)
     }
+    
+    // 背景画像のタイマー発生時に呼び出されるメソッドchangeBack 3秒かけてフェードさせる
+    func changeBack() {
+        let transition = CATransition()
+        transition.duration = 3.0
+        transition.type = kCATransitionFade
+        backImageView.layer.addAnimation(transition, forKey: nil)
+        backImageView.image = backImages[random() % backImages.count]
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

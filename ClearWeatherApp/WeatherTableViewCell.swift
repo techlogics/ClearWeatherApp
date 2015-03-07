@@ -31,7 +31,7 @@ class WeatherTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = UITableViewCellSelectionStyle.None // セルを選択した時の色の変更をなしに設定
-        self.backgroundColor = UIColor.orangeColor()
+        self.backgroundColor = UIColor.clearColor()
         
         // それぞれのパーツの色やフォントの設定
         weatherImageView = UIImageView(frame: CGRectMake(0, 0, 60, 60))
