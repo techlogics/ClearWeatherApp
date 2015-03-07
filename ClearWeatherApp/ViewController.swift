@@ -45,7 +45,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         })
         
         OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
-            let dailyWeather: [DailyWeather] = data
             self.weatherArray = data
             self.tableView.reloadData()
         })
