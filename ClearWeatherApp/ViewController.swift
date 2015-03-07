@@ -22,26 +22,33 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func loadView() {
         super.loadView()
         
+        // TableViewのsizeはデバイスの大きさに合わせる↓
         let kScreenSize = UIScreen.mainScreen().bounds.size
         
+        // TableViewの配置は画面の下半分に設定
         tableView = UITableView(frame: CGRectMake(0, kScreenSize.height/2, kScreenSize.width, kScreenSize.height/2))
-        tableView.backgroundColor = UIColor.whiteColor()
+        tableView.backgroundColor = UIColor.orangeColor()
+        tableView.rowHeight = 100
         tableView.dataSource = self
         self.tableView.separatorStyle = .None
+        
+        // self.view.addSubview()でviewに追加
+        self.view.addSubview(tableView)
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+            
         })
         
         OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
-            
-            
+            let dailyWeather: [DailyWeather] = data
+            self.weatherArray = data
+            self.tableView.reloadData()
         })
-        
-        self.view.addSubview(tableView)
         
     }
     
