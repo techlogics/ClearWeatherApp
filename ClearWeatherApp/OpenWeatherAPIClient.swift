@@ -33,10 +33,55 @@ class OpenWeatherAPIClient: NSObject {
         })
     }
     
+    var places : NSString?
+    
+    func setOlace(place: NSString) -> Void {
+        self.places = place
+    }
+    
+    //地域指定して天気取れるはず…
+    func getDailyWeatherAtPlace(callback: ([DailyWeather], NSError?) -> ()) {
+        if self.places == nil {
+            let baseURL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
+            let params = [
+                "q"     : "Tokyo",
+                "mode"  : "json",
+                "units" : "metric",
+                "cnt"   : "7"
+            ]
+            
+            Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON({request, response, JSON, error in
+                println(request)
+                println(response)
+                println(JSON)
+                println(error)
+                
+                callback(DailyWeather.parseJSON(JSON), error?)
+            })
+        }else{
+            let baseURL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
+            let params = [
+                "q"     : self.places!,
+                "mode"  : "json",
+                "units" : "metric",
+                "cnt"   : "7"
+            ]
+            
+            Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON({request, response, JSON, error in
+                println(request)
+                println(response)
+                println(JSON)
+                println(error)
+                
+                callback(DailyWeather.parseJSON(JSON), error?)
+            })
+        }
+    }
+    
     func getDailyWeather(callback: ([DailyWeather], NSError?) -> ()) {
         let baseURL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
         let params = [
-            "q"     : "Tokyo",
+            "q"     : "ToKyo",
             "mode"  : "json",
             "units" : "metric",
             "cnt"   : "7"
