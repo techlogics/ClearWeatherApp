@@ -18,9 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = MenuNavigationController()
         window?.makeKeyAndVisible()
         return true
+    }
+    
+    func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        
+        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+            let weather: Weather = data
+            let replyDict = [
+                "main": weather.main,
+                "temp_max": weather.temp_max,
+                "temp_min": weather.temp_min,
+                "description": weather.aDescription,
+                "name": weather.name
+            ]
+            
+            reply(replyDict)
+        })
     }
 
     func applicationWillResignActive(application: UIApplication) {
