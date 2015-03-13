@@ -16,6 +16,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
     var minLabel: UILabel!
     var maxLabel: UILabel!
     var nameLabel: UILabel!
+    var RefreshButton = UIButton.buttonWithType(.System) as UIButton
     var backImageView = UIImageView()
     
     var weatherArray = [DailyWeather]()
@@ -74,6 +75,9 @@ class HomeViewController: ViewController, UITableViewDataSource {
         minLabel.textAlignment = .Left // 最低気温は画面左に配置
         minLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
         minLabel.layer.position = CGPointMake(kScreenSize.width/4, kScreenSize.width/2)
+        
+        RefreshButton.titleLabel?.font = UIFont.systemFontSize(12)
+        RefreshButton.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.height/2)
         
         // self.view.addSubview()でviewに追加
         self.view.addSubview(backImageView)
