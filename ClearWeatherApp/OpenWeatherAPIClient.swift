@@ -33,10 +33,11 @@ class OpenWeatherAPIClient: NSObject {
         })
     }
     
+    
     func getDailyWeather(callback: ([DailyWeather], NSError?) -> ()) {
         let baseURL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
         let params = [
-            "q"     : "Tokyo",
+            "q"     : "ToKyo",
             "mode"  : "json",
             "units" : "metric",
             "cnt"   : "7"
