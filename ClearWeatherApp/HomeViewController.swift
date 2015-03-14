@@ -76,8 +76,11 @@ class HomeViewController: ViewController, UITableViewDataSource {
         minLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
         minLabel.layer.position = CGPointMake(kScreenSize.width/4, kScreenSize.width/2)
         
-        RefreshButton.titleLabel?.font = UIFont.systemFontSize(12)
-        RefreshButton.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.height/2)
+        RefreshButton = UIButton(frame: CGRectMake(0, 0, 200, 50))
+        RefreshButton.titleLabel?.textColor = UIColor.whiteColor()
+        RefreshButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        RefreshButton.titleLabel?.textAlignment = .Center
+        RefreshButton.layer.position = CGPointMake(10, 20)
         
         // self.view.addSubview()でviewに追加
         self.view.addSubview(backImageView)
@@ -87,6 +90,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
         self.view.addSubview(descriptionLabel)
         self.view.addSubview(maxLabel)
         self.view.addSubview(minLabel)
+        self.view.addSubview(RefreshButton)
     }
 
     override func viewDidLoad() {
@@ -147,6 +151,22 @@ class HomeViewController: ViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func Refresh(){
+        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+            let weather: Weather = data
+            self.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
+            self.nameLabel.text = weather.name
+            self.descriptionLabel.text = weather.aDescription
+            self.maxLabel.text = weather.temp_max
+            self.minLabel.text = weather.temp_min
+        })
+        
+        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
+            self.weatherArray = data
+            self.tableView.reloadData()
+        })
     }
 }
 
