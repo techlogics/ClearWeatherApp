@@ -54,25 +54,27 @@ class FollowViewController: UIViewController {
     }
     
     func goLinks(sender: UIButton) {
-        var url = ""
+        var url = NSURL()
         switch sender.tag {
         case 0:
             // twitterに飛ぶ処理
-            url = "https://twitter.com/Tech_Logics"
+            url = NSURL(string: "https://twitter.com/Tech_Logics")!
         case 1:
             // ロジックスのホームページに飛ぶ処理
-            url = "http://techlogics.link/"
+            url = NSURL(string: "http://techlogics.link/")!
         case 2:
             // ロジックスのgituhubに飛ぶ処理
-            url = "https://github.com/techlogics"
+            url = NSURL(string: "https://github.com/techlogics")!
         case 3:
             // google+に飛ぶ処理
-            url = "https://plus.google.com/u/0/communities/103512964644715330548"
+            url = NSURL(string: "https://plus.google.com/u/0/communities/103512964644715330548")!
         default:
             break // do nothing
         }
+        
+        println(url)
         let app:UIApplication = UIApplication.sharedApplication()
-        app.openURL(NSURL(string: url)!)
+        app.openURL(url)
     }
 
     override func didReceiveMemoryWarning() {
