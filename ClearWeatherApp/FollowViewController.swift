@@ -69,10 +69,10 @@ class FollowViewController: UIViewController {
             // google+に飛ぶ処理
             url = "https://plus.google.com/u/0/communities/103512964644715330548"
         default:
-            let app:UIApplication = UIApplication.sharedApplication()
-            app.openURL(NSURL(string: url)!)
             break // do nothing
         }
+        let app:UIApplication = UIApplication.sharedApplication()
+        app.openURL(NSURL(string: url)!)
     }
 
     override func didReceiveMemoryWarning() {
