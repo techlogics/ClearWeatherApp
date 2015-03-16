@@ -31,12 +31,12 @@ class MenuNavigationController: UINavigationController {
             self.setViewControllers([settingVC], animated: false)
         })
         
-        menu = MediumMenu(Items: [item1, item2], andTextAlignment: Alignment.Left, forViewController: self)
+        menu = MediumMenu(Items: [item1, item2], andTextAlignment: .Left, forViewController: self)
     }
     
     func showMenu() {
         menu?.showMenu()
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
 }
 

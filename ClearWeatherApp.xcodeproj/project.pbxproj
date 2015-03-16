@@ -29,6 +29,14 @@
 		0B5112081AB03F3E001F6841 /* Clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B5112041AB03F3E001F6841 /* Clouds.png */; };
 		0B5112091AB03F3E001F6841 /* Rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B5112051AB03F3E001F6841 /* Rain.png */; };
 		0B51120A1AB03F3E001F6841 /* Snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B5112061AB03F3E001F6841 /* Snow.png */; };
+		0B7155391AB6B24E00FFA4CA /* UnitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7155381AB6B24E00FFA4CA /* UnitsViewController.swift */; };
+		0B71553B1AB6B26800FFA4CA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71553A1AB6B26800FFA4CA /* AboutViewController.swift */; };
+		0B71553D1AB6B28400FFA4CA /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71553C1AB6B28400FFA4CA /* FollowViewController.swift */; };
+		0B71553F1AB6B9B200FFA4CA /* g+.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B71553E1AB6B9B200FFA4CA /* g+.png */; };
+		0B7155431AB6B9C300FFA4CA /* Github.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7155401AB6B9C300FFA4CA /* Github.png */; };
+		0B7155441AB6B9C300FFA4CA /* Rss.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7155411AB6B9C300FFA4CA /* Rss.png */; };
+		0B7155451AB6B9C300FFA4CA /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7155421AB6B9C300FFA4CA /* twitter.png */; };
+		0B7155491AB6C5AB00FFA4CA /* arrow408.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B7155481AB6C5AB00FFA4CA /* arrow408.png */; };
 		0B7C6F481AAD61370072C421 /* MenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C6F471AAD61370072C421 /* MenuNavigationController.swift */; };
 		0B7C6F4A1AAD618A0072C421 /* MediumMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C6F491AAD618A0072C421 /* MediumMenu.swift */; };
 		0B7C6F4C1AAD62180072C421 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C6F4B1AAD62180072C421 /* SettingsViewController.swift */; };
@@ -109,6 +117,14 @@
 		0B5112041AB03F3E001F6841 /* Clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clouds.png; sourceTree = "<group>"; };
 		0B5112051AB03F3E001F6841 /* Rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rain.png; sourceTree = "<group>"; };
 		0B5112061AB03F3E001F6841 /* Snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snow.png; sourceTree = "<group>"; };
+		0B7155381AB6B24E00FFA4CA /* UnitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsViewController.swift; sourceTree = "<group>"; };
+		0B71553A1AB6B26800FFA4CA /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		0B71553C1AB6B28400FFA4CA /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		0B71553E1AB6B9B200FFA4CA /* g+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "g+.png"; sourceTree = "<group>"; };
+		0B7155401AB6B9C300FFA4CA /* Github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Github.png; sourceTree = "<group>"; };
+		0B7155411AB6B9C300FFA4CA /* Rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rss.png; sourceTree = "<group>"; };
+		0B7155421AB6B9C300FFA4CA /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		0B7155481AB6C5AB00FFA4CA /* arrow408.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow408.png; sourceTree = "<group>"; };
 		0B7C6F471AAD61370072C421 /* MenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuNavigationController.swift; sourceTree = "<group>"; };
 		0B7C6F491AAD618A0072C421 /* MediumMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMenu.swift; sourceTree = "<group>"; };
 		0B7C6F4B1AAD62180072C421 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +290,9 @@
 				0B7C6F471AAD61370072C421 /* MenuNavigationController.swift */,
 				0B7C6F4B1AAD62180072C421 /* SettingsViewController.swift */,
 				0B7C6F511AAD88070072C421 /* ViewController.swift */,
+				0B7155381AB6B24E00FFA4CA /* UnitsViewController.swift */,
+				0B71553A1AB6B26800FFA4CA /* AboutViewController.swift */,
+				0B71553C1AB6B28400FFA4CA /* FollowViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,6 +302,11 @@
 			children = (
 				0B489ECD1A9889670040E45A /* LaunchScreen.xib */,
 				0B489ECB1A9889670040E45A /* Images.xcassets */,
+				0B7155481AB6C5AB00FFA4CA /* arrow408.png */,
+				0B71553E1AB6B9B200FFA4CA /* g+.png */,
+				0B7155401AB6B9C300FFA4CA /* Github.png */,
+				0B7155411AB6B9C300FFA4CA /* Rss.png */,
+				0B7155421AB6B9C300FFA4CA /* twitter.png */,
 				0B7C6F591AADABD40072C421 /* list.png */,
 				FB5838D61AAAE04C0023F204 /* back0.png */,
 				FB5838D81AAAE0560023F204 /* back1.png */,
@@ -447,10 +471,15 @@
 				FB5838DD1AAAE96C0023F204 /* back3.png in Resources */,
 				0B489ECF1A9889670040E45A /* LaunchScreen.xib in Resources */,
 				0B489EF41A988D7C0040E45A /* Snow.png in Resources */,
+				0B7155491AB6C5AB00FFA4CA /* arrow408.png in Resources */,
 				0B489EF21A988D7C0040E45A /* Clouds.png in Resources */,
+				0B7155431AB6B9C300FFA4CA /* Github.png in Resources */,
+				0B71553F1AB6B9B200FFA4CA /* g+.png in Resources */,
 				0B489EF31A988D7C0040E45A /* Rain.png in Resources */,
 				0B489ECC1A9889670040E45A /* Images.xcassets in Resources */,
 				FB5838D91AAAE0560023F204 /* back1.png in Resources */,
+				0B7155451AB6B9C300FFA4CA /* twitter.png in Resources */,
+				0B7155441AB6B9C300FFA4CA /* Rss.png in Resources */,
 				0B489EF11A988D7C0040E45A /* Clear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,7 +516,10 @@
 				0B489EE51A9889800040E45A /* Weather.swift in Sources */,
 				0B489EC51A9889670040E45A /* AppDelegate.swift in Sources */,
 				0B7C6F4A1AAD618A0072C421 /* MediumMenu.swift in Sources */,
+				0B7155391AB6B24E00FFA4CA /* UnitsViewController.swift in Sources */,
+				0B71553B1AB6B26800FFA4CA /* AboutViewController.swift in Sources */,
 				0B489EE91A9889BF0040E45A /* OpenWeatherAPIClient.swift in Sources */,
+				0B71553D1AB6B28400FFA4CA /* FollowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

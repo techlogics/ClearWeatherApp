@@ -76,7 +76,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
         minLabel.font = UIFont(name: "HelveticaNeue-Light", size: 25)
         minLabel.layer.position = CGPointMake(kScreenSize.width/4, kScreenSize.width/2)
         
-        refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refresh")
+        refreshButton = UIBarButtonItem(image: UIImage(named: "arrow408"), style: .Plain, target: self, action: "refresh")
         refreshButton.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = refreshButton
         
@@ -93,19 +93,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
-            let weather: Weather = data
-            self.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
-            self.nameLabel.text = weather.name
-            self.descriptionLabel.text = weather.aDescription
-            self.maxLabel.text = weather.temp_max
-            self.minLabel.text = weather.temp_min
-        })
-        
-        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
-            self.weatherArray = data
-            self.tableView.reloadData()
-        })
+        refresh()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -151,17 +139,19 @@ class HomeViewController: ViewController, UITableViewDataSource {
     }
     
     func refresh(){
+        
+        weak var weakSelf = self
         OpenWeatherAPIClient.sharedClient.getWeather({data, error in
             let weather: Weather = data
-            self.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
-            self.nameLabel.text = weather.name
-            self.descriptionLabel.text = weather.aDescription
-            self.maxLabel.text = weather.temp_max
-            self.minLabel.text = weather.temp_min
+            weakSelf?.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
+            weakSelf?.nameLabel.text = weather.name
+            weakSelf?.descriptionLabel.text = weather.aDescription
+            weakSelf?.maxLabel.text = weather.temp_max
+            weakSelf?.minLabel.text = weather.temp_min
         })
         
         OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
-            self.weatherArray = data
+            weakSelf?.weatherArray = data
             self.tableView.reloadData()
         })
     }
