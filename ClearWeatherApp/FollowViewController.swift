@@ -58,7 +58,7 @@ class FollowViewController: UIViewController {
         var url = NSURL()
         switch sender.tag {
         case 0:
-            println("twitterに飛ぶ処理")
+            //twitterに飛ぶ処理
             url = NSURL(string: "https://twitter.com/Tech_Logics")!
         case 1:
             // ロジックスのホームページに飛ぶ処理
