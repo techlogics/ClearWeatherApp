@@ -56,6 +56,10 @@ class DailyWeather: NSObject {
     }
     
     class func translateDouble(doubleValue:Double) -> String {
-        return NSString(format: "%1.0f°", floor(doubleValue))
+        let ud = NSUserDefaults.standardUserDefaults()
+        if ud.boolForKey("CorF") {
+            return NSString(format: "%1.0f°", floor(doubleValue))
+        }
+        return NSString(format: "%1.0f°", floor((9 / 5 * doubleValue) + 32))
     }
 }

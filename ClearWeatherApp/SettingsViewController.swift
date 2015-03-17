@@ -57,7 +57,6 @@ class SettingsViewController: ViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // セルをタップした時の動作
-        
         switch indexPath.row {
         case 0:
             let unitsVC = UnitsViewController()
@@ -77,8 +76,6 @@ class SettingsViewController: ViewController, UITableViewDataSource, UITableView
         default:
             break // do nothing
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -51,7 +51,12 @@ class Weather: NSObject {
     }
     
     class func translateDouble(doubleValue: Double) -> String {
-        return NSString(format: "%1.0f°", floor(doubleValue - 273.15))
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        if ud.boolForKey("CorF") {
+            return NSString(format: "%1.0f°", floor(doubleValue - 273.15))
+        }
+        return NSString(format: "%1.0f°", floor(1.8 * (doubleValue - 273.15) + 32))
     }
     
     func translateString(StringValue: String) -> Double {
