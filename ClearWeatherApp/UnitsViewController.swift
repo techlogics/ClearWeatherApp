@@ -25,7 +25,7 @@ class UnitsViewController: UIViewController {
         
         myLabel = UILabel(frame: CGRectMake(0,0,150,50))
         myLabel.backgroundColor = UIColor.blackColor()
-        myLabel.layer.borderColor = UIColor.greenColor().CGColor
+        myLabel.layer.borderColor = UIColor.orangeColor().CGColor
         myLabel.layer.borderWidth = 1.0
         myLabel.layer.masksToBounds = true
         myLabel.layer.cornerRadius = 25.0
