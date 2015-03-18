@@ -19,8 +19,8 @@ class LicenseViewController: UIViewController {
         textView.editable = false
         textView.backgroundColor = UIColor.blackColor()
         textView.textColor = UIColor.whiteColor()
-        textView.font = UIFont(name: "HelveticaNeue-Light", size: 13)
-        textView.text = ""
+        textView.font = UIFont(name: "HelveticaNeue-Light", size: 20)
+        textView.text = "hikokokokokoko"
         
         self.view.addSubview(textView)
     }

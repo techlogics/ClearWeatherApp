@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+        OpenWeatherAPIClient.sharedClient.getWeather(userInfo["lat"] as Double, lng: userInfo["lng"] as Double, {data, error in
             let weather: Weather = data
             let replyDict = [
                 "main"        : weather.main,

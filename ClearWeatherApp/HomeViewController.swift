@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class HomeViewController: ViewController, UITableViewDataSource {
+class HomeViewController: ViewController, UITableViewDataSource, CLLocationManagerDelegate {
     
     var tableView: UITableView!
     var weatherImageView: UIImageView!
@@ -18,6 +19,8 @@ class HomeViewController: ViewController, UITableViewDataSource {
     var nameLabel: UILabel!
     var refreshButton: UIBarButtonItem!
     var backImageView: UIImageView!
+    
+    var locationManager: CLLocationManager!
     
     var weatherArray = [DailyWeather]()
     
@@ -85,11 +88,9 @@ class HomeViewController: ViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,16 +111,13 @@ class HomeViewController: ViewController, UITableViewDataSource {
         cell.weatherImageView.image = UIImage(named:weatherArray[indexPath.row].main)?.imageWithRenderingMode(.AlwaysTemplate)
     }
     
-    func refresh(){
+    func refresh(lat: Double, lng: Double){
         weak var weakSelf = self
         
-        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+        OpenWeatherAPIClient.sharedClient.getWeather(lat, lng: lng, {data, error in
             if error != nil {
                 let alertVC = UIAlertController(title: "Error", message: "Failed to connect network.", preferredStyle: .Alert)
-                alertVC.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
-                alertVC.addAction(UIAlertAction(title: "Retry", style: .Default, handler: {(alert: UIAlertAction!) in
-                    self.refresh()
-                }))
+                alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 
                 self.presentViewController(alertVC, animated: true, completion: nil)
             } else {
@@ -132,7 +130,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
             }
         })
         
-        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
+        OpenWeatherAPIClient.sharedClient.getDailyWeather(lat, lng: lng, {data, error in
             if error != nil {
                 
             } else {
@@ -140,6 +138,16 @@ class HomeViewController: ViewController, UITableViewDataSource {
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func refresh() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let locations = manager.location.coordinate
+        refresh(locations.latitude, lng: locations.longitude)
+        manager.stopUpdatingLocation()
     }
 
     // 背景画像のタイマー発生時に呼び出されるメソッドchangeBack 3秒かけてフェードさせる
@@ -161,6 +169,7 @@ class HomeViewController: ViewController, UITableViewDataSource {
     
     deinit {
         tableView.dataSource = nil
+        locationManager.delegate = nil
     }
 
     override func didReceiveMemoryWarning() {

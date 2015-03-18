@@ -13,21 +13,17 @@ class UnitsViewController: UIViewController {
     var mySwitch: UISwitch!
     var myLabel: UILabel!
     var exLabel: UILabel!
-    let ud: NSUserDefaults!
-    
-    
-    
     
     override func loadView() {
         super.loadView()
         
         mySwitch = UISwitch()
-        mySwitch.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
+        mySwitch.layer.position = CGPoint(x: self.view.bounds.width/2, y: 200)
         mySwitch.backgroundColor = UIColor.clearColor()
         mySwitch.tintColor = UIColor.clearColor()
         mySwitch.addTarget(self, action: "onClickMySwicth:", forControlEvents: .ValueChanged)
         
-        myLabel = UILabel(frame: CGRectMake(0,0,150,50))
+        myLabel = UILabel(frame: CGRectMake(0, 0, 150, 50))
         myLabel.backgroundColor = UIColor.blackColor()
         myLabel.layer.borderColor = UIColor.orangeColor().CGColor
         myLabel.layer.borderWidth = 1.0
@@ -38,21 +34,17 @@ class UnitsViewController: UIViewController {
         myLabel.textAlignment = NSTextAlignment.Center
         myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
         
-        
-        exLabel = UILabel()
-        exLabel = UILabel(frame: CGRectMake(0,0,150,50))
+        exLabel = UILabel(frame: CGRectMake(0, 0, 150, 50))
         exLabel.backgroundColor = UIColor.blackColor()
         exLabel.textColor = UIColor.whiteColor()
-        
         exLabel.font = UIFont(name: "HelveticaNeue-UrtraLight", size: 15)
         exLabel.textAlignment = NSTextAlignment.Center
-        exLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 237)
+        exLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y: 237)
         exLabel.text = "Tap to change"
 
         self.view.addSubview(mySwitch)
         self.view.addSubview(exLabel)
         self.view.addSubview(myLabel)
-        
     }
 
     override func viewDidLoad() {
@@ -62,7 +54,6 @@ class UnitsViewController: UIViewController {
         self.view.backgroundColor = UIColor.blackColor()
         
         let ud = NSUserDefaults.standardUserDefaults()
-        
         if ud.boolForKey("CorF") {
             mySwitch.on = ud.boolForKey("CorF")
             myLabel.text = "°C"
@@ -88,6 +79,5 @@ class UnitsViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

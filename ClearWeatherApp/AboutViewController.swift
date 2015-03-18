@@ -66,6 +66,8 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
         switch indexPath.row {
         case 1:
             let licenseVC = LicenseViewController()
+            let backButton = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+            self.navigationItem.backBarButtonItem = backButton
             self.navigationController?.pushViewController(licenseVC, animated: true)
         case 2:
             let url = NSURL(string: "http://farconnection.co.jp/contact/")!

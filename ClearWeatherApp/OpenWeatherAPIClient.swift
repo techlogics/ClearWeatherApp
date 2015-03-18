@@ -17,10 +17,11 @@ class OpenWeatherAPIClient: NSObject {
         return Static.client
     }
     
-    func getWeather(callback: (Weather, NSError?) -> ()) {
+    func getWeather(lat: Double, lng: Double, callback: (Weather, NSError?) -> ()) {
         let baseURL = "http://api.openweathermap.org/data/2.5/weather?"
         let params = [
-            "q": "Tokyo,jp"
+            "lat": "\(lat)",
+            "lon": "\(lng)"
         ]
         
         Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON({request, response, JSON, error in
@@ -33,11 +34,11 @@ class OpenWeatherAPIClient: NSObject {
         })
     }
     
-    
-    func getDailyWeather(callback: ([DailyWeather], NSError?) -> ()) {
+    func getDailyWeather(lat: Double, lng: Double, callback: ([DailyWeather], NSError?) -> ()) {
         let baseURL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
         let params = [
-            "q"     : "ToKyo",
+            "lat": "\(lat))",
+            "lon": "\(lng)",
             "mode"  : "json",
             "units" : "metric",
             "cnt"   : "7"
