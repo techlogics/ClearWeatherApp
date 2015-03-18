@@ -12,7 +12,11 @@ class UnitsViewController: UIViewController {
 
     var mySwitch: UISwitch!
     var myLabel: UILabel!
+    var exLabel: UILabel!
     let ud: NSUserDefaults!
+    
+    
+    
     
     override func loadView() {
         super.loadView()
@@ -28,13 +32,25 @@ class UnitsViewController: UIViewController {
         myLabel.layer.borderColor = UIColor.orangeColor().CGColor
         myLabel.layer.borderWidth = 1.0
         myLabel.layer.masksToBounds = true
-        myLabel.layer.cornerRadius = 25.0
+        myLabel.layer.cornerRadius = 20.0
         myLabel.textColor = UIColor.whiteColor()
         myLabel.font = UIFont(name: "HelveticaNeue-Light", size: 40)
         myLabel.textAlignment = NSTextAlignment.Center
         myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
         
+        
+        exLabel = UILabel()
+        exLabel = UILabel(frame: CGRectMake(0,0,150,50))
+        exLabel.backgroundColor = UIColor.blackColor()
+        exLabel.textColor = UIColor.whiteColor()
+        
+        exLabel.font = UIFont(name: "HelveticaNeue-UrtraLight", size: 15)
+        exLabel.textAlignment = NSTextAlignment.Center
+        exLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 237)
+        exLabel.text = "Tap to change"
+
         self.view.addSubview(mySwitch)
+        self.view.addSubview(exLabel)
         self.view.addSubview(myLabel)
         
     }
