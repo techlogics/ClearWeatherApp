@@ -13,6 +13,8 @@
 		0B0BA36F1AAEC48D00633BF0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA36D1AAEC48D00633BF0 /* Interface.storyboard */; };
 		0B0BA3711AAEC48D00633BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA3701AAEC48D00633BF0 /* Images.xcassets */; };
 		0B0BA3741AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B0BA35C1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0B3EBA871AB959CA0099EF5B /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3EBA861AB959CA0099EF5B /* LicenseViewController.swift */; };
+		0B3EBA8F1AB975C90099EF5B /* sad53.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3EBA8E1AB975C90099EF5B /* sad53.png */; };
 		0B489EC51A9889670040E45A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B489EC41A9889670040E45A /* AppDelegate.swift */; };
 		0B489EC71A9889670040E45A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B489EC61A9889670040E45A /* HomeViewController.swift */; };
 		0B489ECC1A9889670040E45A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B489ECB1A9889670040E45A /* Images.xcassets */; };
@@ -97,6 +99,8 @@
 		0B0BA36C1AAEC48D00633BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B0BA36E1AAEC48D00633BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		0B0BA3701AAEC48D00633BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0B3EBA861AB959CA0099EF5B /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		0B3EBA8E1AB975C90099EF5B /* sad53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad53.png; sourceTree = "<group>"; };
 		0B489EBF1A9889670040E45A /* ClearWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B489EC31A9889670040E45A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B489EC41A9889670040E45A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				0B7155381AB6B24E00FFA4CA /* UnitsViewController.swift */,
 				0B71553A1AB6B26800FFA4CA /* AboutViewController.swift */,
 				0B71553C1AB6B28400FFA4CA /* FollowViewController.swift */,
+				0B3EBA861AB959CA0099EF5B /* LicenseViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			children = (
 				0B489ECD1A9889670040E45A /* LaunchScreen.xib */,
 				0B489ECB1A9889670040E45A /* Images.xcassets */,
+				0B3EBA8E1AB975C90099EF5B /* sad53.png */,
 				0B7155481AB6C5AB00FFA4CA /* arrow408.png */,
 				0B71553E1AB6B9B200FFA4CA /* g+.png */,
 				0B7155401AB6B9C300FFA4CA /* Github.png */,
@@ -466,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5838DB1AAAE05C0023F204 /* back2.png in Resources */,
+				0B3EBA8F1AB975C90099EF5B /* sad53.png in Resources */,
 				FB5838D71AAAE04D0023F204 /* back0.png in Resources */,
 				0B7C6F5A1AADABD40072C421 /* list.png in Resources */,
 				FB5838DD1AAAE96C0023F204 /* back3.png in Resources */,
@@ -507,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC98EBC1A99DF25006F339A /* Alamofire.swift in Sources */,
+				0B3EBA871AB959CA0099EF5B /* LicenseViewController.swift in Sources */,
 				0B489EE71A9889A70040E45A /* DailyWeather.swift in Sources */,
 				0B7C6F481AAD61370072C421 /* MenuNavigationController.swift in Sources */,
 				0B7C6F4C1AAD62180072C421 /* SettingsViewController.swift in Sources */,

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutViewController: UIViewController, UITableViewDataSource {
+
+class AboutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     
@@ -27,6 +29,7 @@ class AboutViewController: UIViewController, UITableViewDataSource {
         tableView.backgroundColor = UIColor.blackColor()
         tableView.separatorStyle = .None
         tableView.dataSource = self
+        tableView.delegate = self
         
         self.view.addSubview(tableView)
     }
@@ -42,39 +45,44 @@ class AboutViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 20)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
-        updateCell(cell, indexPath: indexPath)
+        cell.detailTextLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 15)
+        
+        cell.textLabel?.text = settingsTitle[indexPath.row]
+        
+        switch indexPath.row {
+        case 0:
+            cell.detailTextLabel?.text = "1.0.0"
+        case 1:
+            cell.accessoryType = .DisclosureIndicator
+        case 2:
+            cell.accessoryType = .DisclosureIndicator
+        default:
+            break // do nothing
+        }
         return cell
     }
     
-    func updateCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.text = settingsTitle[indexPath.row]
-        if indexPath.row == 0 {
-            cell.detailTextLabel?.text = "1.0.0"
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 1:
+            let licenseVC = LicenseViewController()
+            self.navigationController?.pushViewController(licenseVC, animated: true)
+        case 2:
+            let url = NSURL(string: "http://farconnection.co.jp/contact/")!
+            UIApplication.sharedApplication().openURL(url)
+        default:
+            break // do nothing
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

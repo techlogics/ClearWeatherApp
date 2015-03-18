@@ -81,4 +81,9 @@ class SettingsViewController: ViewController, UITableViewDataSource, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    deinit {
+        tableView.delegate = nil
+        tableView.dataSource = nil
+    }
 }

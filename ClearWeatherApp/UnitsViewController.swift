@@ -41,6 +41,7 @@ class UnitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
         

@@ -17,17 +17,9 @@ class HomeViewController: ViewController, UITableViewDataSource {
     var maxLabel: UILabel!
     var nameLabel: UILabel!
     var refreshButton: UIBarButtonItem!
-    var backImageView = UIImageView()
+    var backImageView: UIImageView!
     
     var weatherArray = [DailyWeather]()
-    
-    // 背景画像を配列で用意
-    let backImages = [
-        UIImage(named: "back0"),
-        UIImage(named: "back1"),
-        UIImage(named: "back2"),
-        UIImage(named: "back3")
-    ]
     
     override func loadView() {
         super.loadView()
@@ -43,9 +35,9 @@ class HomeViewController: ViewController, UITableViewDataSource {
         tableView.separatorStyle = .None
         
         // 背景画像の設定 背景は背景の数でランダム
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "changeBack", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: "changeBack", userInfo: nil, repeats: true)
         backImageView = UIImageView(frame: CGRectMake(0, 0, kScreenSize.width, kScreenSize.height))
-        backImageView.image = backImages[random() % backImages.count]
+        changeBack()
         
         // それぞれのパーツ CGRectMakeでパーツの大きさを設定 CGPointMakeで配置位置を設定
         weatherImageView = UIImageView(frame: CGRectMake(0, 0, kScreenSize.width/3, kScreenSize.width/3))
@@ -98,9 +90,6 @@ class HomeViewController: ViewController, UITableViewDataSource {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        tableView.dataSource = nil
-        weatherArray = []
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,8 +110,48 @@ class HomeViewController: ViewController, UITableViewDataSource {
         cell.weatherImageView.image = UIImage(named:weatherArray[indexPath.row].main)?.imageWithRenderingMode(.AlwaysTemplate)
     }
     
+    func refresh(){
+        weak var weakSelf = self
+        
+        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
+            if error != nil {
+                let alertVC = UIAlertController(title: "Error", message: "Failed to connect network.", preferredStyle: .Alert)
+                alertVC.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+                alertVC.addAction(UIAlertAction(title: "Retry", style: .Default, handler: {(alert: UIAlertAction!) in
+                    self.refresh()
+                }))
+                
+                self.presentViewController(alertVC, animated: true, completion: nil)
+            } else {
+                let weather: Weather = data
+                weakSelf?.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
+                weakSelf?.nameLabel.text = weather.name
+                weakSelf?.descriptionLabel.text = weather.aDescription
+                weakSelf?.maxLabel.text = weather.temp_max
+                weakSelf?.minLabel.text = weather.temp_min
+            }
+        })
+        
+        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
+            if error != nil {
+                
+            } else {
+                weakSelf?.weatherArray = data
+                self.tableView.reloadData()
+            }
+        })
+    }
+
     // 背景画像のタイマー発生時に呼び出されるメソッドchangeBack 3秒かけてフェードさせる
     func changeBack() {
+        // 背景画像を配列で用意
+        let backImages = [
+            UIImage(named: "back0"),
+            UIImage(named: "back1"),
+            UIImage(named: "back2"),
+            UIImage(named: "back3")
+        ]
+        
         let transition = CATransition()
         transition.duration = 3.0
         transition.type = kCATransitionFade
@@ -131,29 +160,11 @@ class HomeViewController: ViewController, UITableViewDataSource {
     }
     
     deinit {
+        tableView.dataSource = nil
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func refresh(){
-        
-        weak var weakSelf = self
-        OpenWeatherAPIClient.sharedClient.getWeather({data, error in
-            let weather: Weather = data
-            weakSelf?.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
-            weakSelf?.nameLabel.text = weather.name
-            weakSelf?.descriptionLabel.text = weather.aDescription
-            weakSelf?.maxLabel.text = weather.temp_max
-            weakSelf?.minLabel.text = weather.temp_min
-        })
-        
-        OpenWeatherAPIClient.sharedClient.getDailyWeather({data, error in
-            weakSelf?.weatherArray = data
-            self.tableView.reloadData()
-        })
     }
 }
 

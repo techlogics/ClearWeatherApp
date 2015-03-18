@@ -17,7 +17,9 @@ class FollowViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        
         let rect = UIScreen.mainScreen().bounds
+        
         twitterButton = UIButton(frame: CGRectMake(rect.size.width/2-35, 154, 70, 70))
         twitterButton.addTarget(self, action: "goLinks:", forControlEvents: .TouchUpInside)
         twitterButton.tag = 0
@@ -47,14 +49,12 @@ class FollowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
-
-        // Do any additional setup after loading the view.
     }
     
     func goLinks(sender: UIButton) {
-        println("関数突撃でち")
         var url = NSURL()
         switch sender.tag {
         case 0:
@@ -72,24 +72,11 @@ class FollowViewController: UIViewController {
         default:
             break // do nothing
         }
-        
+
         UIApplication.sharedApplication().openURL(url)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

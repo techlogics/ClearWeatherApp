@@ -12,11 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = MenuNavigationController()
         window?.makeKeyAndVisible()
@@ -28,13 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         OpenWeatherAPIClient.sharedClient.getWeather({data, error in
             let weather: Weather = data
             let replyDict = [
-                "main": weather.main,
-                "temp_max": weather.temp_max,
-                "temp_min": weather.temp_min,
-                "description": weather.aDescription,
-                "name": weather.name
+                "main"        : weather.main,
+                "temp_max"    : weather.temp_max,
+                "temp_min"    : weather.temp_min,
+                "description" : weather.aDescription,
+                "name"        : weather.name
             ]
-            
             reply(replyDict)
         })
     }
