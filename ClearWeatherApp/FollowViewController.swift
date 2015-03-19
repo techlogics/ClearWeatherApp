@@ -20,26 +20,26 @@ class FollowViewController: UIViewController {
         
         let rect = UIScreen.mainScreen().bounds
         
-        twitterButton = UIButton(frame: CGRectMake(rect.size.width/2-35, 154, 70, 70))
+        twitterButton = UIButton(frame: CGRectMake(rect.size.width/2-50, 74, 100, 100))
         twitterButton.addTarget(self, action: "goLinks:", forControlEvents: .TouchUpInside)
         twitterButton.tag = 0
-        twitterButton.setImage(UIImage(named: "twitter"), forState: .Normal)
+        twitterButton.setImage(UIImage(named: "twitter-256"), forState: .Normal)
         
-        siteButton = UIButton(frame: CGRectMake(rect.size.width/2-35, 244, 70, 70))
+        siteButton = UIButton(frame: CGRectMake(rect.size.width/2-50, 184, 100, 100))
         siteButton.addTarget(self, action: "goLinks:", forControlEvents: .TouchUpInside)
         siteButton.tag = 1
-        siteButton.setImage(UIImage(named: "Rss"), forState: .Normal)
+        siteButton.setImage(UIImage(named: "rss-256"), forState: .Normal)
         
-        githubButton = UIButton(frame: CGRectMake(rect.size.width/2-35, 334, 70, 70))
+        githubButton = UIButton(frame: CGRectMake(rect.size.width/2-50, 294, 100, 100))
         githubButton.addTarget(self, action: "goLinks:", forControlEvents: .TouchUpInside)
         githubButton.tag = 2
-        githubButton.setImage(UIImage(named: "Github")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        githubButton.setImage(UIImage(named: "github-256"), forState: .Normal)
         githubButton.tintColor = UIColor.whiteColor()
         
-        googleButton = UIButton(frame: CGRectMake(rect.size.width/2-35, 424, 70, 70))
+        googleButton = UIButton(frame: CGRectMake(rect.size.width/2-50, 404, 100, 100))
         googleButton.addTarget(self, action: "goLinks:", forControlEvents: .TouchUpInside)
         googleButton.tag = 3
-        googleButton.setImage(UIImage(named: "g+"), forState: .Normal)
+        googleButton.setImage(UIImage(named: "googleplus-256"), forState: .Normal)
         
         self.view.addSubview(twitterButton)
         self.view.addSubview(siteButton)
@@ -52,6 +52,11 @@ class FollowViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
+        
+        FCAnimation().performAnimation(twitterButton, duration: 0.5, delay: 0, type: .Pop)
+        FCAnimation().performAnimation(siteButton, duration: 0.5, delay: 0.25, type: .Pop)
+        FCAnimation().performAnimation(githubButton, duration: 0.5, delay: 0.50, type: .Pop)
+        FCAnimation().performAnimation(googleButton, duration: 0.5, delay: 0.75, type: .Pop)
     }
     
     func goLinks(sender: UIButton) {
@@ -74,6 +79,12 @@ class FollowViewController: UIViewController {
         }
 
         UIApplication.sharedApplication().openURL(url)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        super.preferredStatusBarStyle()
+        
+        return .LightContent
     }
 
     override func didReceiveMemoryWarning() {

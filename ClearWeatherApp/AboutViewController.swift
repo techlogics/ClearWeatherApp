@@ -83,6 +83,12 @@ class AboutViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        super.preferredStatusBarStyle()
+        
+        return .LightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

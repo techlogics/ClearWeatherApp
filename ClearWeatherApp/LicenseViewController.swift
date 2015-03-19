@@ -19,14 +19,24 @@ class LicenseViewController: UIViewController {
         textView.editable = false
         textView.backgroundColor = UIColor.blackColor()
         textView.textColor = UIColor.whiteColor()
-        textView.font = UIFont(name: "HelveticaNeue-Light", size: 20)
-        textView.text = "hikokokokokoko"
+        textView.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+        
+        let filePath = NSBundle.mainBundle().pathForResource("Lisence", ofType: "txt")
+        let text = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)
+        
+        textView.text = text
         
         self.view.addSubview(textView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        super.preferredStatusBarStyle()
+        
+        return .LightContent
     }
 
     override func didReceiveMemoryWarning() {

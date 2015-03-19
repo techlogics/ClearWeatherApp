@@ -65,16 +65,24 @@ class UnitsViewController: UIViewController {
     
     func onClickMySwicth(sender: UISwitch){
         if (sender.on == true) {
+            FCAnimation().performAnimation(myLabel, duration: 0.5, delay: 0, type: .Pop)
             myLabel.text = "°C"
             let ud = NSUserDefaults.standardUserDefaults()
             ud.setBool(true, forKey : "CorF")
             ud.synchronize()
         } else {
+            FCAnimation().performAnimation(myLabel, duration: 0.5, delay: 0, type: .Pop)
             myLabel.text = "°F"
             let ud = NSUserDefaults.standardUserDefaults()
             ud.setBool(false, forKey : "CorF")
             ud.synchronize()
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        super.preferredStatusBarStyle()
+        
+        return .LightContent
     }
 
     override func didReceiveMemoryWarning() {

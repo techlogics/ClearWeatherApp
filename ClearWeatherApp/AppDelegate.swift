@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = MenuNavigationController()
         window?.makeKeyAndVisible()
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
     

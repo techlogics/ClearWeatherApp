@@ -53,7 +53,7 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
         nameLabel.textAlignment = .Center
         nameLabel.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.width/2 - kScreenSize.width/5)
         
-        descriptionLabel = UILabel(frame: CGRectMake(0, 0, 200, 30))
+        descriptionLabel = UILabel(frame: CGRectMake(0, 0, 250, 30))
         descriptionLabel.textColor = UIColor.whiteColor()
         descriptionLabel.textAlignment = .Center
         descriptionLabel.font = UIFont(name: "HelveticaNeue-Light", size: 20)
@@ -127,6 +127,12 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
                 weakSelf?.descriptionLabel.text = weather.aDescription
                 weakSelf?.maxLabel.text = weather.temp_max
                 weakSelf?.minLabel.text = weather.temp_min
+                
+                FCAnimation().performAnimation(self.weatherImageView, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(self.nameLabel, duration: 1, delay: 0, type: .FadeIn)
+                FCAnimation().performAnimation(self.maxLabel, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(self.minLabel, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(self.descriptionLabel, duration: 1, delay: 0.6, type: .FadeIn)
             }
         })
         

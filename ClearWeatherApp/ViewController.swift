@@ -18,6 +18,12 @@ class ViewController: UIViewController {
         icon.tintColor = UIColor.whiteColor()
         navigationItem.leftBarButtonItem = icon
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        super.preferredStatusBarStyle()
+        
+        return .LightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
