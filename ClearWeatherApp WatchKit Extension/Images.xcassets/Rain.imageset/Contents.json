@@ -4,6 +4,16 @@
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "Rain.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Rain-1.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "Rain-2.png"
     }
   ],
   "info" : {
