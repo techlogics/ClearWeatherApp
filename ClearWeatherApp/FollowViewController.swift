@@ -61,29 +61,24 @@ class FollowViewController: UIViewController {
     
     func goLinks(sender: UIButton) {
         var url = NSURL()
-        var button = UIButton()
+        FCAnimation().performAnimation(sender, duration: 1, delay: 0, type: .Pop)
         switch sender.tag {
         case 0:
             //twitterに飛ぶ処理
             url = NSURL(string: "https://twitter.com/Tech_Logics")!
-            button = twitterButton
         case 1:
             // ロジックスのホームページに飛ぶ処理
             url = NSURL(string: "http://techlogics.link/")!
-            button = siteButton
         case 2:
             // ロジックスのgituhubに飛ぶ処理
             url = NSURL(string: "https://github.com/techlogics")!
-            button = githubButton
         case 3:
             // google+に飛ぶ処理
             url = NSURL(string: "https://plus.google.com/u/0/communities/103512964644715330548")!
-            button = googleButton
         default:
             break // do nothing
         }
 
-        FCAnimation().performAnimation(button, duration: 1, delay: 0, type: .Pop)
         UIApplication.sharedApplication().openURL(url)
     }
     
