@@ -55,7 +55,7 @@ class UnitsViewController: UIViewController {
         
         let ud = NSUserDefaults.standardUserDefaults()
         if ud.boolForKey("CorF") {
-            mySwitch.on = ud.boolForKey("CorF")
+            mySwitch.on = true
             myLabel.text = "°C"
         } else {
             mySwitch.on = false
@@ -78,6 +78,7 @@ class UnitsViewController: UIViewController {
             ud.synchronize()
         }
     }
+
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         super.preferredStatusBarStyle()
@@ -95,6 +96,7 @@ class UnitsViewController: UIViewController {
         for touch: AnyObject in touches {
             var t: UITouch = touch as UITouch
             if t.view.tag == self.myLabel.tag {
+                viewDidLoad()
                 onClickMySwicth(self.mySwitch)
             }
         }
