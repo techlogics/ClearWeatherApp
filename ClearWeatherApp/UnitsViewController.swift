@@ -88,4 +88,15 @@ class UnitsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+        
+        for touch: AnyObject in touches {
+            var t: UITouch = touch as UITouch
+            if t.view.tag == self.myLabel.tag {
+                onClickMySwicth(self.mySwitch)
+            }
+        }
+    }
 }
