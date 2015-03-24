@@ -80,6 +80,8 @@ class UnitsViewController: UIViewController {
     }
 
     
+
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         super.preferredStatusBarStyle()
         
@@ -97,6 +99,13 @@ class UnitsViewController: UIViewController {
             var t: UITouch = touch as UITouch
             if t.view.tag == self.myLabel.tag {
                 viewDidLoad()
+                
+                if (self.mySwitch.on) {
+                    self.mySwitch.on = false
+                } else {
+                    self.mySwitch.on = true
+                }
+                
                 onClickMySwicth(self.mySwitch)
             }
         }
