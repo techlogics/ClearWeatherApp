@@ -79,17 +79,10 @@ class UnitsViewController: UIViewController {
         }
     }
 
-    
-
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         super.preferredStatusBarStyle()
         
         return .LightContent
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
@@ -110,4 +103,9 @@ class UnitsViewController: UIViewController {
             }
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
 }
