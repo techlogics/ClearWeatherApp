@@ -112,6 +112,7 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
     }
     
     func refresh(lat: Double, lng: Double){
+        
         weak var weakSelf = self
         
         OpenWeatherAPIClient.sharedClient.getWeather(lat, lng: lng, {data, error in
@@ -151,8 +152,15 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let locations = manager.location.coordinate
-        refresh(locations.latitude, lng: locations.longitude)
+        let currentLocation: CLLocation? = locations.last as? CLLocation
+        let lat: CLLocationDegrees? = currentLocation?.coordinate.latitude
+        let lng: CLLocationDegrees? = currentLocation?.coordinate.longitude
+        let dt: NSDate! = currentLocation?.timestamp
+        
+        if abs(dt.timeIntervalSinceNow) < 15 {
+            refresh(lat!, lng: lng!)
+        }
+        
         manager.stopUpdatingLocation()
     }
 
