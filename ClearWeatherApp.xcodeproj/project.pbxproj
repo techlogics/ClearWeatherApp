@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0BA3611AAEC48D00633BF0 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0BA3601AAEC48D00633BF0 /* InterfaceController.swift */; };
-		0B0BA3631AAEC48D00633BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA3621AAEC48D00633BF0 /* Images.xcassets */; };
 		0B0BA3671AAEC48D00633BF0 /* ClearWeatherApp WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA3661AAEC48D00633BF0 /* ClearWeatherApp WatchKit App.app */; };
-		0B0BA36F1AAEC48D00633BF0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA36D1AAEC48D00633BF0 /* Interface.storyboard */; };
-		0B0BA3711AAEC48D00633BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0BA3701AAEC48D00633BF0 /* Images.xcassets */; };
-		0B0BA3741AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0B0BA35C1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0B0D97971AC3FDC700522811 /* ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0D97961AC3FDC700522811 /* ios7.png */; };
+		0B0D97991AC3FFDF00522811 /* ios74s.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0D97981AC3FFDF00522811 /* ios74s.png */; };
 		0B3EBA871AB959CA0099EF5B /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3EBA861AB959CA0099EF5B /* LicenseViewController.swift */; };
 		0B3EBA991AB9EA1A0099EF5B /* mist.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3EBA981AB9EA1A0099EF5B /* mist.png */; };
 		0B3EBA9A1AB9EA1A0099EF5B /* mist.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3EBA981AB9EA1A0099EF5B /* mist.png */; };
@@ -81,13 +78,6 @@
 			remoteGlobalIDString = 0B0BA3651AAEC48D00633BF0;
 			remoteInfo = "ClearWeatherApp WatchKit App";
 		};
-		0B0BA3721AAEC48D00633BF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0B489EB71A9889670040E45A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0B0BA35B1AAEC48D00633BF0;
-			remoteInfo = "ClearWeatherApp WatchKit Extension";
-		};
 		0B489ED51A9889680040E45A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0B489EB71A9889670040E45A /* Project object */;
@@ -97,29 +87,11 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		0B0BA37B1AAEC48D00633BF0 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				0B0BA3741AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0B0BA35C1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClearWeatherApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B0BA35F1AAEC48D00633BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B0BA3601AAEC48D00633BF0 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		0B0BA3621AAEC48D00633BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0B0BA3661AAEC48D00633BF0 /* ClearWeatherApp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClearWeatherApp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B0BA36C1AAEC48D00633BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B0BA36E1AAEC48D00633BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		0B0BA3701AAEC48D00633BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0B0D97961AC3FDC700522811 /* ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios7.png; sourceTree = "<group>"; };
+		0B0D97981AC3FFDF00522811 /* ios74s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios74s.png; sourceTree = "<group>"; };
 		0B3EBA861AB959CA0099EF5B /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		0B3EBA981AB9EA1A0099EF5B /* mist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mist.png; sourceTree = "<group>"; };
 		0B3EBA9B1AB9EA2F0099EF5B /* haze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haze.png; sourceTree = "<group>"; };
@@ -207,49 +179,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B0BA35D1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				0B0BA3601AAEC48D00633BF0 /* InterfaceController.swift */,
-				0B0BA3621AAEC48D00633BF0 /* Images.xcassets */,
-				0B0BA35E1AAEC48D00633BF0 /* Supporting Files */,
-			);
-			path = "ClearWeatherApp WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		0B0BA35E1AAEC48D00633BF0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0B0BA35F1AAEC48D00633BF0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0B0BA36A1AAEC48D00633BF0 /* ClearWeatherApp WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				0B0BA36D1AAEC48D00633BF0 /* Interface.storyboard */,
-				0B0BA3701AAEC48D00633BF0 /* Images.xcassets */,
-				0B0BA36B1AAEC48D00633BF0 /* Supporting Files */,
-			);
-			path = "ClearWeatherApp WatchKit App";
-			sourceTree = "<group>";
-		};
-		0B0BA36B1AAEC48D00633BF0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0B0BA36C1AAEC48D00633BF0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		0B489EB61A9889670040E45A = {
 			isa = PBXGroup;
 			children = (
 				0B489EC11A9889670040E45A /* ClearWeatherApp */,
 				0B489ED71A9889680040E45A /* ClearWeatherAppTests */,
-				0B0BA35D1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension */,
-				0B0BA36A1AAEC48D00633BF0 /* ClearWeatherApp WatchKit App */,
 				0B489EC01A9889670040E45A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -347,6 +281,8 @@
 				0BA149F01ABAA06A008A0F30 /* googleplus-256.png */,
 				0BA149F41ABAA0BD008A0F30 /* rss-256.png */,
 				0BA149F21ABAA0A8008A0F30 /* twitter-256.png */,
+				0B0D97961AC3FDC700522811 /* ios7.png */,
+				0B0D97981AC3FFDF00522811 /* ios74s.png */,
 				0B489ECD1A9889670040E45A /* LaunchScreen.xib */,
 				0B489ECB1A9889670040E45A /* Images.xcassets */,
 				0B7155481AB6C5AB00FFA4CA /* arrow408.png */,
@@ -444,12 +380,10 @@
 				0B489EBB1A9889670040E45A /* Sources */,
 				0B489EBC1A9889670040E45A /* Frameworks */,
 				0B489EBD1A9889670040E45A /* Resources */,
-				0B0BA37B1AAEC48D00633BF0 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0B0BA3731AAEC48D00633BF0 /* PBXTargetDependency */,
 			);
 			name = ClearWeatherApp;
 			productName = ClearWeatherApp;
@@ -491,6 +425,7 @@
 					};
 					0B489EBE1A9889670040E45A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FVAY3DK4CE;
 					};
 					0B489ED31A9889680040E45A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -525,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B0BA3671AAEC48D00633BF0 /* ClearWeatherApp WatchKit App.app in Resources */,
-				0B0BA3631AAEC48D00633BF0 /* Images.xcassets in Resources */,
 				0B3EBA9A1AB9EA1A0099EF5B /* mist.png in Resources */,
 				0B3EBA9D1AB9EA2F0099EF5B /* haze.png in Resources */,
 			);
@@ -535,8 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B0BA36F1AAEC48D00633BF0 /* Interface.storyboard in Resources */,
-				0B0BA3711AAEC48D00633BF0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +497,7 @@
 				0B7155491AB6C5AB00FFA4CA /* arrow408.png in Resources */,
 				0B489EF21A988D7C0040E45A /* Clouds.png in Resources */,
 				0B3EBA9C1AB9EA2F0099EF5B /* haze.png in Resources */,
+				0B0D97971AC3FDC700522811 /* ios7.png in Resources */,
 				0BA149F91ABAC62D008A0F30 /* Lisence.txt in Resources */,
 				0B489EF31A988D7C0040E45A /* Rain.png in Resources */,
 				0BAE50851AC07070003A5E91 /* Icon-Small@3x.png in Resources */,
@@ -582,6 +515,7 @@
 				0BAE508C1AC07070003A5E91 /* Icon@2x.png in Resources */,
 				0B489EF11A988D7C0040E45A /* Clear.png in Resources */,
 				0BAE507F1AC07070003A5E91 /* Icon-60@2x.png in Resources */,
+				0B0D97991AC3FFDF00522811 /* ios74s.png in Resources */,
 				0BAE50881AC07070003A5E91 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,7 +534,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B0BA3611AAEC48D00633BF0 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,11 +576,6 @@
 			target = 0B0BA3651AAEC48D00633BF0 /* ClearWeatherApp WatchKit App */;
 			targetProxy = 0B0BA3681AAEC48D00633BF0 /* PBXContainerItemProxy */;
 		};
-		0B0BA3731AAEC48D00633BF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0B0BA35B1AAEC48D00633BF0 /* ClearWeatherApp WatchKit Extension */;
-			targetProxy = 0B0BA3721AAEC48D00633BF0 /* PBXContainerItemProxy */;
-		};
 		0B489ED61A9889680040E45A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0B489EBE1A9889670040E45A /* ClearWeatherApp */;
@@ -656,14 +584,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0B0BA36D1AAEC48D00633BF0 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0B0BA36E1AAEC48D00633BF0 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		0B489ECD1A9889670040E45A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -816,7 +736,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ClearWeatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -829,7 +750,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ClearWeatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
