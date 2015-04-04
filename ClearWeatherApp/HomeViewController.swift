@@ -88,9 +88,7 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        configureLocation()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,16 +150,15 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let currentLocation: CLLocation? = locations.last as? CLLocation
-        let lat: CLLocationDegrees? = currentLocation?.coordinate.latitude
-        let lng: CLLocationDegrees? = currentLocation?.coordinate.longitude
-        let dt: NSDate! = currentLocation?.timestamp
+        var currentLocation: CLLocation? = locations.last as? CLLocation
+        var lat: CLLocationDegrees? = currentLocation?.coordinate.latitude
+        var lng: CLLocationDegrees? = currentLocation?.coordinate.longitude
+        var dt: NSDate! = currentLocation?.timestamp
         
-        if abs(dt.timeIntervalSinceNow) < 15 {
+        if abs(dt.timeIntervalSinceNow) < 5.0 {
             refresh(lat!, lng: lng!)
+            manager.stopUpdatingLocation()
         }
-        
-        manager.stopUpdatingLocation()
     }
 
     // 背景画像のタイマー発生時に呼び出されるメソッドchangeBack 3秒かけてフェードさせる
@@ -179,6 +176,17 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
         transition.type = kCATransitionFade
         backImageView.layer.addAnimation(transition, forKey: nil)
         backImageView.image = backImages[random() % backImages.count]
+    }
+    
+    func configureLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        if self.locationManager.respondsToSelector("requestWhenInUseAuthorization") {
+            self.locationManager.requestWhenInUseAuthorization()
+            refresh()
+        } else {
+            refresh()
+        }
     }
     
     deinit {
