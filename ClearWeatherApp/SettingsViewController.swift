@@ -47,12 +47,8 @@ class SettingsViewController: ViewController, UITableViewDataSource, UITableView
         cell.selectionStyle = .None
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 20)
         cell.textLabel?.textColor = UIColor.whiteColor()
-        updateCell(cell, indexPath: indexPath)
-        return cell
-    }
-    
-    func updateCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         cell.textLabel?.text = settingsTitle[indexPath.row]
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

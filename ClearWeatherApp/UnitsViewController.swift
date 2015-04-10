@@ -17,33 +17,31 @@ class UnitsViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        let label = UILabel(frame: CGRectMake(0, 0, 100, 40))
+        label.font = UIFont(name: "HelveticaNeue-Light", size: 25)
+        label.text = "Tap to Change"
+        label.textColor = UIColor.whiteColor()
+        label.sizeToFit()
+        self.navigationItem.titleView = label
+        
         mySwitch = UISwitch()
-        mySwitch.layer.position = CGPoint(x: self.view.bounds.width/2, y: 200)
+        mySwitch.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height/2)
         mySwitch.backgroundColor = UIColor.clearColor()
         mySwitch.tintColor = UIColor.clearColor()
         mySwitch.addTarget(self, action: "onClickMySwicth:", forControlEvents: .ValueChanged)
         
-        myLabel = UILabel(frame: CGRectMake(0, 0, 150, 50))
+        myLabel = UILabel(frame: CGRectMake(0, 0, 150, 150))
         myLabel.backgroundColor = UIColor.blackColor()
         myLabel.layer.borderColor = UIColor.orangeColor().CGColor
         myLabel.layer.borderWidth = 1.0
         myLabel.layer.masksToBounds = true
-        myLabel.layer.cornerRadius = 20.0
+        myLabel.layer.cornerRadius = 75.0
         myLabel.textColor = UIColor.whiteColor()
         myLabel.font = UIFont(name: "HelveticaNeue-Light", size: 40)
         myLabel.textAlignment = NSTextAlignment.Center
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
-        
-        exLabel = UILabel(frame: CGRectMake(0, 0, 150, 50))
-        exLabel.backgroundColor = UIColor.blackColor()
-        exLabel.textColor = UIColor.whiteColor()
-        exLabel.font = UIFont(name: "HelveticaNeue-UrtraLight", size: 15)
-        exLabel.textAlignment = NSTextAlignment.Center
-        exLabel.layer.position = CGPoint(x: self.view.bounds.width/2, y: 237)
-        exLabel.text = "Tap to change"
+        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height/2)
 
         self.view.addSubview(mySwitch)
-        self.view.addSubview(exLabel)
         self.view.addSubview(myLabel)
     }
 
@@ -63,7 +61,7 @@ class UnitsViewController: UIViewController {
         }
     }
     
-    func onClickMySwicth(sender: UISwitch){
+    func onClickMySwicth(sender: UISwitch) {
         if (sender.on == true) {
             FCAnimation().performAnimation(myLabel, duration: 0.5, delay: 0, type: .Pop)
             myLabel.text = "°C"
@@ -85,11 +83,11 @@ class UnitsViewController: UIViewController {
         return .LightContent
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
         
         for touch: AnyObject in touches {
-            var t: UITouch = touch as UITouch
+            var t: UITouch = touch as! UITouch
             if t.view.tag == self.myLabel.tag {
                 viewDidLoad()
                 

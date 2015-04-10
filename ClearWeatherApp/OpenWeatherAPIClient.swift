@@ -24,13 +24,13 @@ class OpenWeatherAPIClient: NSObject {
             "lon": "\(lng)"
         ]
         
-        Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON({request, response, JSON, error in
+        Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON(completionHandler: {request, response, JSON, error in
             println(request)
             println(response)
             println(JSON)
             println(error)
             
-            callback(Weather.parseJSON(JSON), error?)
+            callback(Weather.parseJSON(JSON), error)
         })
     }
     
@@ -44,13 +44,13 @@ class OpenWeatherAPIClient: NSObject {
             "cnt"   : "7"
         ]
         
-        Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON({request, response, JSON, error in
+        Alamofire.sharedAlamofire.request(.GET, baseURL, parameters: params, encoding: .URL).responseJSON(completionHandler: {request, response, JSON, error in
             println(request)
             println(response)
             println(JSON)
             println(error)
             
-            callback(DailyWeather.parseJSON(JSON), error?)
+            callback(DailyWeather.parseJSON(JSON), error)
         })
     }
 }

@@ -34,23 +34,23 @@ class WeatherTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clearColor()
         
         // それぞれのパーツの色やフォントの設定
-        weatherImageView = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+        //weatherImageView = UIImageView(frame: CGRectMake(0, 0, 60, 60))
         weatherImageView.tintColor = UIColor.whiteColor()
         
-        dateLabel = UILabel(frame: CGRectZero)
+        //dateLabel = UILabel(frame: CGRectZero)
         dateLabel.textColor = UIColor.whiteColor()
         dateLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 25)
         
-        descriptionLabel = UILabel(frame: CGRectZero)
+        //descriptionLabel = UILabel(frame: CGRectZero)
         descriptionLabel.textColor = UIColor.whiteColor()
         descriptionLabel.font = UIFont(name: "HelveticaNeue-light", size: 15)
         
-        maxLabel = UILabel(frame: CGRectZero)
+        //maxLabel = UILabel(frame: CGRectZero)
         maxLabel.textColor = UIColor.whiteColor()
         maxLabel.font = UIFont(name: "HelveticaNeue-light", size: 20)
         maxLabel.textAlignment = NSTextAlignment.Right
         
-        minLabel = UILabel(frame: CGRectZero)
+        //minLabel = UILabel(frame: CGRectZero)
         minLabel.textColor = UIColor.whiteColor()
         minLabel.font = UIFont(name: "HelveticaNeue-light", size: 20)
         minLabel.textAlignment = NSTextAlignment.Right

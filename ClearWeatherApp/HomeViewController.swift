@@ -19,10 +19,8 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
     var nameLabel: UILabel!
     var refreshButton: UIBarButtonItem!
     var backImageView: UIImageView!
-    
+    var indicatorView: UIActivityIndicatorView!
     var locationManager: CLLocationManager!
-    
-    var weatherArray = [DailyWeather]()
     
     override func loadView() {
         super.loadView()
@@ -75,6 +73,10 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
         refreshButton.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = refreshButton
         
+        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        indicatorView.layer.position = CGPointMake(kScreenSize.width/2, kScreenSize.height/2)
+        indicatorView.color = UIColor.whiteColor()
+        
         // self.view.addSubview()でviewに追加
         self.view.addSubview(backImageView)
         self.view.addSubview(tableView)
@@ -83,64 +85,66 @@ class HomeViewController: ViewController, UITableViewDataSource, CLLocationManag
         self.view.addSubview(descriptionLabel)
         self.view.addSubview(maxLabel)
         self.view.addSubview(minLabel)
+        self.view.addSubview(indicatorView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        indicatorView.startAnimating()
         configureLocation()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherArray.count
+        return ModelManager.sharedManager.list.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = WeatherTableViewCell(style: .Default, reuseIdentifier: "Cell")
-        updateCell(cell, indexPath: indexPath)
+        
+        cell.dateLabel.text = ModelManager.sharedManager.list[indexPath.row].dt
+        cell.minLabel.text = ModelManager.sharedManager.list[indexPath.row].min
+        cell.maxLabel.text = ModelManager.sharedManager.list[indexPath.row].max
+        cell.descriptionLabel.text = ModelManager.sharedManager.list[indexPath.row].aDescription
+        cell.weatherImageView.image = UIImage(named:ModelManager.sharedManager.list[indexPath.row].main)?.imageWithRenderingMode(.AlwaysTemplate)
+        
         return cell
-    }
-    
-    func updateCell(cell: WeatherTableViewCell, indexPath: NSIndexPath) {
-        cell.dateLabel.text = weatherArray[indexPath.row].dt
-        cell.minLabel.text = weatherArray[indexPath.row].min
-        cell.maxLabel.text = weatherArray[indexPath.row].max
-        cell.descriptionLabel.text = weatherArray[indexPath.row].aDescription
-        cell.weatherImageView.image = UIImage(named:weatherArray[indexPath.row].main)?.imageWithRenderingMode(.AlwaysTemplate)
     }
     
     func refresh(lat: Double, lng: Double){
         
         weak var weakSelf = self
         
-        OpenWeatherAPIClient.sharedClient.getWeather(lat, lng: lng, {data, error in
+        ModelManager.sharedManager.reloadWeather(lat, lng: lng, callback: { error in
             if error != nil {
+                weakSelf?.indicatorView.stopAnimating()
+                
                 let alertVC = UIAlertController(title: "Error", message: "Failed to connect network.", preferredStyle: .Alert)
                 alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 
-                self.presentViewController(alertVC, animated: true, completion: nil)
+                weakSelf?.presentViewController(alertVC, animated: true, completion: nil)
             } else {
-                let weather: Weather = data
-                weakSelf?.weatherImageView.image = UIImage(named: weather.main)?.imageWithRenderingMode(.AlwaysTemplate)
-                weakSelf?.nameLabel.text = weather.name
-                weakSelf?.descriptionLabel.text = weather.aDescription
-                weakSelf?.maxLabel.text = weather.temp_max
-                weakSelf?.minLabel.text = weather.temp_min
+                self.indicatorView.stopAnimating()
                 
-                FCAnimation().performAnimation(self.weatherImageView, duration: 1, delay: 0.3, type: .FadeIn)
-                FCAnimation().performAnimation(self.nameLabel, duration: 1, delay: 0, type: .FadeIn)
-                FCAnimation().performAnimation(self.maxLabel, duration: 1, delay: 0.3, type: .FadeIn)
-                FCAnimation().performAnimation(self.minLabel, duration: 1, delay: 0.3, type: .FadeIn)
-                FCAnimation().performAnimation(self.descriptionLabel, duration: 1, delay: 0.6, type: .FadeIn)
+                FCAnimation().performAnimation(weakSelf!.weatherImageView, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(weakSelf!.nameLabel, duration: 1, delay: 0, type: .FadeIn)
+                FCAnimation().performAnimation(weakSelf!.maxLabel, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(weakSelf!.minLabel, duration: 1, delay: 0.3, type: .FadeIn)
+                FCAnimation().performAnimation(weakSelf!.descriptionLabel, duration: 1, delay: 0.6, type: .FadeIn)
+                
+                weakSelf?.weatherImageView.image = UIImage(named: ModelManager.sharedManager.data.main)?.imageWithRenderingMode(.AlwaysTemplate)
+                weakSelf?.nameLabel.text = ModelManager.sharedManager.data.name
+                weakSelf?.descriptionLabel.text = ModelManager.sharedManager.data.aDescription
+                weakSelf?.maxLabel.text = ModelManager.sharedManager.data.temp_max
+                weakSelf?.minLabel.text = ModelManager.sharedManager.data.temp_min
             }
         })
         
-        OpenWeatherAPIClient.sharedClient.getDailyWeather(lat, lng: lng, {data, error in
+        ModelManager.sharedManager.reloadDailyWeather(lat, lng: lng, callback: { error in
             if error != nil {
                 
             } else {
-                weakSelf?.weatherArray = data
-                self.tableView.reloadData()
+                weakSelf?.tableView.reloadData()
             }
         })
     }

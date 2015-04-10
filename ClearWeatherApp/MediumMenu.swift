@@ -154,10 +154,6 @@ class MediumMenu: UIView, UITableViewDataSource, UITableViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    override init() {
-        super.init()
-    }
-    
     // Initializers
 
     convenience init(Items menuItems: [MediumMenuItem],

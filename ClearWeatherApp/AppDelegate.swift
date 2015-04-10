@@ -21,21 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
-    
-    func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
-        
-        OpenWeatherAPIClient.sharedClient.getWeather(userInfo["lat"] as Double, lng: userInfo["lng"] as Double, {data, error in
-            let weather: Weather = data
-            let replyDict = [
-                "main"        : weather.main,
-                "temp_max"    : weather.temp_max,
-                "temp_min"    : weather.temp_min,
-                "description" : weather.aDescription,
-                "name"        : weather.name
-            ]
-            reply(replyDict)
-        })
-    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

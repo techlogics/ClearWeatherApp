@@ -26,24 +26,21 @@ class Weather: NSObject {
         // if let文はOptionalのアンラップ構文
         // 以前のとり方だと値が返ってこなかった時にクラッシュしてしまう
         if let weatherData = data as? NSDictionary {
-            if let name = weatherData["name"] as? String {
-                weather.name = name
-            }
-            if let main = weatherData["main"] as? NSDictionary {
-                if let temp_max = main["temp_max"] as? Double {
-                    weather.temp_max = translateDouble(temp_max)
-
-                }
-                if let temp_min = main["temp_min"] as? Double {
-                    weather.temp_min = translateDouble(temp_min)
-                }
-            }
-            if let weatherArray = weatherData["weather"] as? NSArray {
-                if let main = weatherArray[0]["main"] as? String {
-                    weather.main = main
-                }
-                if let aDescription = weatherArray[0]["description"] as? String {
-                    weather.aDescription = aDescription
+            if let
+                name = weatherData["name"] as? String,
+                weatherArray = weatherData["weather"] as? NSArray,
+                main = weatherData["main"] as? NSDictionary {
+                    weather.name = name
+                    
+                if let
+                    temp_max = main["temp_max"] as? Double,
+                    temp_min = main["temp_min"] as? Double,
+                    main = weatherArray[0]["main"] as? String,
+                    aDescription = weatherArray[0]["description"] as? String {
+                        weather.temp_max = translateDouble(temp_max)
+                        weather.temp_min = translateDouble(temp_min)
+                        weather.main = main
+                        weather.aDescription = aDescription
                 }
             }
         }
@@ -54,9 +51,9 @@ class Weather: NSObject {
         
         let ud = NSUserDefaults.standardUserDefaults()
         if ud.boolForKey("CorF") {
-            return NSString(format: "%1.0f°", floor(doubleValue - 273.15))
+            return NSString(format: "%1.0f°", floor(doubleValue - 273.15)) as String
         }
-        return NSString(format: "%1.0f°", floor(1.8 * (doubleValue - 273.15) + 32))
+        return NSString(format: "%1.0f°", floor(1.8 * (doubleValue - 273.15) + 32)) as String
     }
     
     func translateString(StringValue: String) -> Double {

@@ -24,7 +24,7 @@ class LicenseViewController: UIViewController {
         let filePath = NSBundle.mainBundle().pathForResource("Lisence", ofType: "txt")
         let text = NSString(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)
         
-        textView.text = text
+        textView.text = text as! String
         
         self.view.addSubview(textView)
     }
