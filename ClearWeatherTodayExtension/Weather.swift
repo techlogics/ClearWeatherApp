@@ -48,7 +48,6 @@ class Weather: NSObject {
     }
     
     class func translateDouble(doubleValue: Double) -> String {
-        
         let ud = NSUserDefaults(suiteName: "group.clearWeather")
         if ud!.boolForKey("CorF") {
             return NSString(format: "%1.0f°", floor(doubleValue - 273.15)) as String

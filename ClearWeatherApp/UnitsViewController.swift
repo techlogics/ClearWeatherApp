@@ -51,8 +51,8 @@ class UnitsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.blackColor()
         
-        let ud = NSUserDefaults.standardUserDefaults()
-        if ud.boolForKey("CorF") {
+        let ud = NSUserDefaults(suiteName: "group.clearWeather")
+        if ud!.boolForKey("CorF") {
             mySwitch.on = true
             myLabel.text = "°C"
         } else {
@@ -65,15 +65,15 @@ class UnitsViewController: UIViewController {
         if (sender.on == true) {
             FCAnimation().performAnimation(myLabel, duration: 0.5, delay: 0, type: .Pop)
             myLabel.text = "°C"
-            let ud = NSUserDefaults.standardUserDefaults()
-            ud.setBool(true, forKey : "CorF")
-            ud.synchronize()
+            let ud = NSUserDefaults(suiteName: "group.clearWeather")
+            ud!.setBool(true, forKey : "CorF")
+            ud!.synchronize()
         } else {
             FCAnimation().performAnimation(myLabel, duration: 0.5, delay: 0, type: .Pop)
             myLabel.text = "°F"
-            let ud = NSUserDefaults.standardUserDefaults()
-            ud.setBool(false, forKey : "CorF")
-            ud.synchronize()
+            let ud = NSUserDefaults(suiteName: "group.clearWeather")
+            ud!.setBool(false, forKey : "CorF")
+            ud!.synchronize()
         }
     }
 
