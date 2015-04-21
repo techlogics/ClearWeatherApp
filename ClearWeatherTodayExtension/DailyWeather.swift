@@ -16,6 +16,8 @@ class DailyWeather: NSObject {
     var main = String()
     var dt = String()
     
+    var name = String()
+    
     class func parseJSON(data: AnyObject?) -> [DailyWeather] {
         var dailyWeather = [DailyWeather]()
         
@@ -43,7 +45,11 @@ class DailyWeather: NSObject {
                                 weather.max = translateDouble(temp_max)
                         }
                     }
-                    
+                    if let city = weatherData["city"] as? NSDictionary {
+                        if let name = city["name"] as? String {
+                            weather.name = name
+                        }
+                    }
                     dailyWeather.append(weather)
                 }
             }
@@ -54,7 +60,7 @@ class DailyWeather: NSObject {
     // 時間の直し方わからなかったのでググりました。あってるかわかりませんm(_ _)m
     private class func translateTime(unixDate: NSTimeInterval) -> String {
         
-        let dateComp: NSDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: NSDate(timeIntervalSince1970: unixDate))
+        let dateComp: NSDateComponents = NSCalendar.currentCalendar().components(.CalendarUnitDay | .CalendarUnitMonth, fromDate: NSDate(timeIntervalSince1970: unixDate))
         return "\(dateComp.month)/\(dateComp.day)"
     }
     
